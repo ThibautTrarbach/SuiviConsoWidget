@@ -1,12 +1,12 @@
 <?php
 
 
-echo '<div  class="col-lg-12" id="conso_dashboard" style="height:100%;">
+echo '<div  class="" id="conso_dashboard" style="height:100%;">
 		<div id="div_DashboardAlert" style="display: none;"></div>
 
 		<div class="span6">
 			<div class="row">
-				<div class="col-lg-4" id="widget_tableau_prix">
+				<div class="" id="widget_tableau_prix">
 					<div class="widget flip" id="tableau_prix">
 						<div class="card">
 							<div class="face front">
