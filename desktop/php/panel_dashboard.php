@@ -210,9 +210,9 @@ echo '<div  class="" id="conso_dashboard" style="height:100%;">
 								<div class="col-lg-4">
 									<div class="input-group input-daterange">
 										<span class="input-group-addon">Du</span>
-										<input id="current_debut" type="text" class="datecurrent in_datepicker form-control" value="">
+										<input id="current_debut" type="text" class="datecurrent datetimepicker form-control" value="">
 										<span class="input-group-addon">au</span>
-										<input id="current_fin" type="text" class=" datecurrent in_datepicker form-control" value="">
+										<input id="current_fin" type="text" class=" datecurrent datetimepicker form-control" value="">
 										<span id="validedatecurrent" class="input-group-addon">OK</span>
 									</div>
 								</div>
