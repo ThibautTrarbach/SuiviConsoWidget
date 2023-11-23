@@ -1,18 +1,18 @@
 /*
 1  : Prix
-2  : Consomation
+2  : Consommation
 3  : Puissance
 4  : Variation
-5  : Consomation Du Jours
+5  : Consommation du jour
 6  : Statistique
-7  : 7 Derniers Jours
-8  : 4 Dernière semaine
+7  : 7 derniers jours
+8  : 4 dernière semaines
 9  : 12 dernirs mois
-10 : 7 Dernier jous Euro
-11 : 4 dernière semaine Euro
+10 : 7 derniers jours Euro
+11 : 4 dernières semaine Euro
 12 : 12 derniers mois Euro
-13 : 12 derrnièrs mois TTC
-14 : Degré jours unifié par ans
+13 : 12 derniers mois TTC
+14 : Degré jours unifié par an
 */
 
 
@@ -39,6 +39,8 @@ document.getElementById("widget_DJU4sBox").style.display = "none";
 document.getElementById("widget_DJU12mBox").style.display = "none";
 document.getElementById("widget_YearTaxe").style.display = "none";
 document.getElementById("widget_DJUBox").style.display = "none";
+document.getElementById("widget_PluriYear").style.display = "none";
+document.getElementById("widget_PluriYearEuro").style.display = "none";
 document.getElementById("WidgetError").style.display = "none";
 
 if (idequipement != "") {
@@ -101,6 +103,14 @@ if (idequipement != "") {
 
     if (widgetId == 14) {
         document.getElementById("widget_DJUBox").style.display = "block";
+    };
+
+	if (widgetId == 15) {
+        document.getElementById("widget_PluriYear").style.display = "block";
+    };
+
+	if (widgetId == 16) {
+        document.getElementById("widget_PluriYearEuro").style.display = "block";
     };
 } else {
     document.getElementById("WidgetError").style.display = "block";

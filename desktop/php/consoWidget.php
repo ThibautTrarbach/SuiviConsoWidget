@@ -35,7 +35,7 @@ $eqLogics = eqLogic::byType('consoWidget');
             foreach ($eqLogics as $eqLogic) {
                 $opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
                 echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
-                echo '<img src="plugins/consoWidget/plugin_info//consoWidget_icon.png"/>';
+                echo '<img src="plugins/consoWidget/plugin_info/consoWidget_icon.png"/>';
                 echo '<br>';
                 echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
                 echo '</div>';
@@ -111,7 +111,7 @@ $eqLogics = eqLogic::byType('consoWidget');
                                 if ($eqLogic->getIsEnable() == 1) {
                                     echo '<option value='.$eqLogic->getId().' >'.$eqLogic->getName().'</option>';
                                 }
-                            } 
+                            }
                         ?>
                        </select>
                    </div>
@@ -141,6 +141,8 @@ $eqLogics = eqLogic::byType('consoWidget');
                            <option value="12">{{12 derniers mois Euro}}</option>
                            <option value="13">{{12 derniers mois TTC}}</option>
                            <option value="14">{{Degré jour unifié par an}}</option>
+						   <option value="15">{{Pluriannuel}}</option>
+						   <option value="16">{{Pluriannuel en € (HT)}}</option>
                        </select>
                    </div>
                </div>
