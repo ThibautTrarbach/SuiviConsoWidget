@@ -116,22 +116,25 @@ class consoWidget extends eqLogic {
 		} else {
 			$validate_ip = 'faux';
 		}
-		if (config::byKey('ProtocoleURL', 'consoWidget') == 1 and filter_var($ip, FILTER_VALIDATE_IP) == 0) {
+		if (config::byKey('ProtocoleURL', 'consoWidget') == 1 and filter_var($ip, FILTER_VALIDATE_IP) == 0 and $ip == config::byKey('externalAddr')) {
 			$chemin = network::getNetworkAccess('external');
 			$rech = 'external';
-		} elseif (config::byKey('ProtocoleURL', 'consoWidget') == 0 and filter_var($ip, FILTER_VALIDATE_IP)) {
+		} elseif (config::byKey('ProtocoleURL', 'consoWidget') == 0 and filter_var($ip, FILTER_VALIDATE_IP) and $ip == config::byKey('internalAddr')) {
 			$chemin = network::getNetworkAccess('internal');
 			$rech = 'internal';
-		} elseif (config::byKey('ProtocoleURL', 'consoWidget') == 0 and filter_var($ip, FILTER_VALIDATE_IP) == 0) {
+		} elseif (config::byKey('ProtocoleURL', 'consoWidget') == 0 and filter_var($ip, FILTER_VALIDATE_IP) == 0 and $ip == config::byKey('externalAddr')) {
 			$chemin = network::getNetworkAccess('external');
 			$rech = 'external';
+		} elseif (config::byKey('ProtocoleURL', 'consoWidget') == 0 and filter_var($ip, FILTER_VALIDATE_IP) == 0 and $ip != config::byKey('externalAddr') and $ip != config::byKey('internalAddr')) {
+			$chemin = 'http://'.$ip;
+			$rech = 'manual';
 		} else {
 			$chemin = network::getNetworkAccess('auto');
 			$rech = 'auto';
 		}
 
 		if (config::byKey('modeDebug', 'consoWidget') == 1) {
-			$code = '<div width="100%" height="10%" style="background-color: #262626; color: #acacac;">           DEBUG 1: '. $chemin.'/index.php?v=d&m=consoWidget&p=widget&id='.$this->getConfiguration('idequip').'&widget='.$this->getConfiguration('type_consoWidget').' IP: '.$ip.' validate_ip: '.$validate_ip.' rech:'.$rech.'</div>
+			$code = '<div width="100%" height="10%" style="background-color: #262626; color: #acacac;">           DEBUG 3: '. $chemin.'/index.php?v=d&m=consoWidget&p=widget&id='.$this->getConfiguration('idequip').'&widget='.$this->getConfiguration('type_consoWidget').' IP: '.$ip.' Adresse interne: '.config::byKey('internalAddr').' Adresse externe: '.config::byKey('externalAddr').' validate_ip: '.$validate_ip.' rech:'.$rech.'</div>
 			<embed width="100%" height="90%" src="'.$chemin.'/index.php?v=d&m=consoWidget&p=widget&id='.$this->getConfiguration('idequip').'&widget='.$this->getConfiguration('type_consoWidget').'" frameborder="0"></embed>';
 		} else {
 			$code = ' <embed width="100%" height="100%" src="'.$chemin.'/index.php?v=d&m=consoWidget&p=widget&id='.$this->getConfiguration('idequip').'&widget='.$this->getConfiguration('type_consoWidget').'" frameborder="0"></embed>';
